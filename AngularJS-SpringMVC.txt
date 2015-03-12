@@ -1,0 +1,172 @@
+
+(Product – Inventory management using AngularJS, MySQL and PHP RESTful API) http://www.angularcode.com/
+(Приятнее всего, что IDE автоматически обнаруживает unmapped contexts, определенные с помощью @Configuration, и предлагает добавить их в настройки проекта) http://habrahabr.ru/company/JetBrains/blog/204590/
+(IntelliJ IDEA Plugins RESTClient) https://plugins.jetbrains.com/plugin/5951?pr=&showAllUpdates=true
+
+(AngularJS Login dialog SpringMVC)
+
+http://habrahabr.ru/post/226791/
+https://github.com/elennaro/sshwa/tree/0.2-SNAPSHOT
+-------------------------------------------------------------------------------------------------------[ spring 4 security java 8 ]
+(Spring Security Hello World Java Config ** /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/sshwa) http://localhost:8080/sshwa/protected
+
+http://spring.io/blog/2015/01/12/the-login-page-angular-js-and-spring-security-part-ii
+https://github.com/dsyer/spring-security-angular
+-------------------------------------------------------------------------------------------------------[ angularjs authentication java ]
+(The Login Page: Angular JS and Spring Security Part II ** /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/single) http://localhost:8080/index.html#/
+                                                           /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/spring-security-angular-master
+
+https://ru.wikipedia.org/wiki/WAR_(тип_файла)
+http://sda0.euro.ru/ams/210701r.html
+http://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/
+-------------------------------------------------------------------------------------------------------[ WAR project of Web application Tomcat ]
+( ** /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/CounterWebApp) http://localhost:8080/CounterWebApp/index.html
+
+http://javahonk.com/pass-json-array-angularjs-spring-mvc-controller/
+(http://javahonk.com/angularjs-form-post-spring-mvc-json/)
+(http://javahonk.com/pass-json-map-spring-mvc-controller-angularjs/)
+-------------------------------------------------------------------------------------------------------[ AngularJS Login dialog SpringMVC ]
+(Pass JSON Array AngularJS Spring MVC Controller ** /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/AngularJSPostFormSpringMVC2) http://localhost:8080/AngularJSPostFormSpringMVC/
+  http://localhost:8080/AngularJSPostFormSpringMVC/PostFormDataJSONArray
+  [{"name":"Java Honk1","location":"NY","phone":"123456"},{"name":"Java Honk2","location":"NY2","phone":"123456789"}]
+  POST
+
+
+
+https://github.com/jhades/spring-mvc-angularjs-sample-app
+http://blog.e-bluesoft.com/angularjs-login-dialog-with-springmvc-part-1/
+http://blog.e-bluesoft.com/angularjs-login-dialog-with-springmvc-part-2/
+
+
+====================================================================================================================================================================================
+'spring-data-rest-angular'
+-----------------------------------[ Spring Boot + Spring Data/REST + AngularJS ]
+http://www.programming-free.com/2014/07/spring-data-rest-with-angularjs-crud.html >> /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/spring-data-rest-angular-sample
++++++++++++++++++
+> java -jar target/spring-data-rest-angular-0.0.1-SNAPSHOT.jar
+http://localhost:8080/home
+
+'sshwa'
+-----------------------------------[ Spring(4) Security + Java(8) ]
+https://github.com/elennaro/sshwa/tree/0.2-SNAPSHOT >> /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/sshwa
++++++++++++++++++
+> /opt/tomcat8/tomcat start
+http://localhost:8080/sshwa/
+http://localhost:8080/sshwa/login >> 'user/user' >> http://localhost:8080/sshwa/helloworld/
+http://localhost:8080/sshwa/login?logout
+http://localhost:8080/sshwa/login >> 'admin/admin' >> http://localhost:8080/sshwa/protected
+http://localhost:8080/sshwa/login?logout
+http://localhost:8080/sshwa/login >> 'superadmin/superadmin' >> http://localhost:8080/sshwa/confidential
+
+'single'
+-----------------------------------[ Spring Security + AngularJS ]
+https://github.com/dsyer/spring-security-angular >> /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/single
+(/home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/spring-security-angular-master/single)
++++++++++++++++++
+> java -jar target/single-0.0.1-SNAPSHOT.jar
+http://localhost:8080/index.html#/
+http://localhost:8080/index.html#/login >> 'user/password'
+
+'CounterWebApp'
+-------------------------------------------------------------------------------------------------------[ WAR-Project + Web-Application Tomcat ]
+http://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/ >> /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/CounterWebApp
++++++++++++++++++
+> /opt/tomcat8/tomcat start
+http://localhost:8080/CounterWebApp/index.html
++++++++++++++++++
+https://ru.wikipedia.org/wiki/WAR_(тип_файла)
+http://sda0.euro.ru/ams/210701r.html
+
+'AngularJSPostFormSpringMVC'
+-----------------------------------[ Spring MVC + JSON(Array) + AngularJS ]
+http://javahonk.com/pass-json-array-angularjs-spring-mvc-controller/ >> /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/AngularJSPostFormSpringMVC2
++++++++++++++++++
+> /opt/tomcat8/tomcat start
+http://localhost:8080/AngularJSPostFormSpringMVC/
+POST >> [{"name":"Java Honk1","location":"NY","phone":"123456"},{"name":"Java Honk2","location":"NY2","phone":"123456789"}]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+* (HTML Forms in AngularJS) http://www.sitepoint.com/html-forms-angularjs/
+                            http://protected-chamber-9267.herokuapp.com/app/
+  (Bootstrap) http://getbootstrap.com/getting-started/#download
+* (С чего начать изучение AngularJS. Часть2 – Шаблоны оживают) http://stepansuvorov.com/blog/2013/06/start-with-angularjs-part2/
+                                                               http://stepansuvorov.com/blog/2012/12/с-чего-начать-изучение-angularjs/
+                                                               http://stepansuvorov.com/blog/2013/01/testacular-в-помощь-тестированию/
+  https://egghead.io/technologies
+  http://hashcode.ru/questions/384464/javascript-обновление-данных-формы-angularjs-после-окончания-ввода
+  (Валидация форм в AngularJS) http://habrahabr.ru/post/167793/
+  (Валидация формы) http://metanit.com/web/angular/2.6.php
+  (Формы в Angularjs) http://habrahabr.ru/post/179473/
+
+  (HTML-формы в AngularJS) http://www.internet-technologies.ru/articles/article_1914.html
+  (HTML-формы в AngularJS) http://www.webmasters.by/articles/web-programming/3068-html-forms-in-angularjs.html
+                           http://protected-chamber-9267.herokuapp.com/app/firstDemo.html
+                           https://github.com/angular/angular-seed
+                           http://nodejs.org/
+
+'firstDemo.html'
+-------------------------------------------------------------------------------------------------------[ AngularJS Login dialog SpringMVC ]
+http://protected-chamber-9267.herokuapp.com/app/ >> /home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/tmp2
++++++++++++++++++
+file:///home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/SECURITY/tmp2/firstDemo.html
+
+
+
+
+
+http://j4sq.blogspot.com/2011/10/ejb-1.html
+http://stepansuvorov.com/blog/2012/12/с-чего-начать-изучение-angularjs/
+http://stepansuvorov.com/blog/2013/06/start-with-angularjs-part2/
+http://stepansuvorov.com/blog/2013/01/testacular-в-помощь-тестированию/
+http://localhost/angularjs/angular-seed/app/
+http://www.sitepoint.com/html-forms-angularjs/
+http://www.webmasters.by/articles/web-programming/3068-html-forms-in-angularjs.html
+http://localhost/angularjs/tmp/
+http://localhost/angularjs/MyAngularJS_1.html
+http://demos.angularcode.com/grid/
+http://localhost/angularjs/grid/
+http://demos.angularcode.com/product-manager/#/
+http://localhost/angularjs/product-manager/#/
+http://www.angularcode.com/
+https://docs.angularjs.org/guide/compiler
+http://www.programming-free.com/2014/05/angularjs-retrieve-multiple-checkbox-selected-options.html
+http://www.javacodegeeks.com/2014/09/angularjs-tutorial-getting-started-with-angularjs.html
+http://weblogs.asp.net/dwahlin/learning-angularjs-by-example-the-customer-manager-application
+http://translatedby.com/you/angularjs-developer-guide/into-ru/?page=27
+http://www.dejurka.ru/articless/html5-in-simple-words/
+(npm parseqs)
+http://stackoverflow.com/questions/28731803/npm-trying-to-download-from-github-instead-of-from-npmjs
+http://repo.spring.io/npm-repo/
+http://habrahabr.ru/post/133363/#npm_install
+http://karma-runner.github.io/0.12/index.html
+https://groups.google.com/forum/#!topic/karma-users/SSPalyT_H98
+https://www.npmjs.com/search?q=karma
+https://www.youtube.com/watch?v=kK--WKlng74
+http://karma-runner.github.io/0.8/config/browsers.html
+https://github.com/joyent/node
+https://bardevblog.wordpress.com/2013/07/28/setting-up-angularjs-angular-seed-node-js-and-karma/
+https://www.youtube.com/watch?v=FQwZrOAmMAc
+http://tatiyants.com/how-to-configure-intellij-idea-for-angular-js-testing/
+http://karma-runner.github.io/0.10/intro/installation.html
+https://www.npmjs.com/
+https://www.npmjs.com/package/karma
+https://karma-runner.github.io/0.12/intro/installation.html
+https://www.jetbrains.com/idea/help/using-angularjs.html
+https://www.jetbrains.com/idea/help/running-unit-tests-on-karma.html
+https://nodejs.org/
+https://plugins.jetbrains.com/plugin/6098?pr=idea
+http://blog.techdev.de/trackr-an-angularjs-app-with-a-java-8-backend-part-ii/
+http://inching.org/2014/06/08/angular-requirejs/
+https://github.com/shyamseshadri/angularjs-book
+http://localhost/angularjs/angularjs-book/chapter4/guthub/
+http://iantonov.me/page/yeoman-generator-proektov-dlja-angularjs
+iantonov.me/page/yeoman-generator-proektov-dlja-angularjs
+http://www.simplecoding.org/personal-maps-testirovanie-angularjs-servisa-s-pomoshhyu-jasmine-i-karma-chast-5.html
+http://requirejs.org/docs/download.html#2-1-16
+https://www.nuget.org/packages/RequireJS/2.1.16
+http://requirejs.org/
+http://habrahabr.ru/post/225931/
+http://stepansuvorov.com/blog/2012/10/загрузчик-модулей-requirejs/
+
+
+
