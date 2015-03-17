@@ -1,0 +1,541 @@
+(spring способы кэширования)
+*** (Spring 3.1 M1: Cache Abstraction) https://spring.io/blog/2011/02/23/spring-3-1-m1-cache-abstraction
+*** (Cache Abstraction: JCache (JSR-107) Annotations Support) http://spring.io/blog/2014/04/14/cache-abstraction-jcache-jsr-107-annotations-support
+*** (JCache is Final! I Repeat: JCache is Final!) https://blogs.oracle.com/theaquarium/entry/jcache_is_final_i_repeat
+*** (Дальнейшие усовершенствования кеширования в Spring 4.1) http://spring-projects.ru/blog/further-cache-improvements-in-spring-4-1/
+*** (Учебные материалы ** Кеширование данных с Spring) http://spring-projects.ru/guides/caching/
+*** (Проекты ** Spring Data) http://spring-projects.ru/projects/spring-data/
+    (Caching Data with Spring) https://spring.io/guides/gs/caching/
+    (Spring ** Основные интерфейсы) http://www.spring-source.ru/docs_simple.php?type=manual&theme=docs_simple&docs_simple=chap03_p03
+
+(spring dao cache)
+   (Extending declarative caching services for Spring) http://www.javaworld.com/article/2072722/extending-declarative-caching-services-for-spring.html
+   (Cache abstraction in Spring 3) https://doanduyhai.wordpress.com/2012/07/01/cache-abstraction-in-spring-3/
+   (Ehcache ** JDBC Caching) http://ehcache.org/documentation/2.8/integrations/jdbc
+   (Transactions with Spring Cache Abstraction and JDBC DAO) http://stackoverflow.com/questions/10904400/transactions-with-spring-cache-abstraction-and-jdbc-dao
+*  (Spring JDBC and Ehcache) https://exploringspatial.wordpress.com/2014/02/16/spring-jdbc-and-ehcache/
+
+(spring работа с базой данных кэширование)
+   (Domain-Driven Design: Продажа идеи) http://blog.byndyu.ru/2012/03/domain-driven-design.html
+   (Spring Data на примере JPA) http://habrahabr.ru/post/139421/
+   (Упрощаем работу с JPA при помощи Spring Data JPA) http://atamanenko.blogspot.com/2012/02/jpa-spring-data-jpa.html
+
+(spring кэширование транзакций к базе пример)
+** (Кеширование в Spring Framework 3.1) http://habrahabr.ru/post/113945/
+*  (Spring 3.1: новые возможности ** Абстракция кэширования (cache abstraction)) http://www.finecosoft.ru/spring-3.1-new-features
+   (Использование Spring для работы с базой данных через JPA) https://github.com/wizardjedi/my-spring-learning/wiki/Работа-с-базами-данных-на-основе-jpa
+*  (The Spring framework: Основы) http://www.javaportal.ru/java/articles/spring.html
+      (Основной сайт Spring Framework) http://www.springframework.org/
+      (Описание паттерна IoC. Автор: Мартин Фаулер (Martin Fowler)) http://www.martinfowler.com/articles/injection.html
+*   (Spring в действии. 3-издание / Spring in Action. Third Edition) http://rutracker.org/forum/viewtopic.php?t=4537975
+*   (Spring caching with Ehcache) http://www.codingpedia.org/ama/spring-caching-with-ehcache/
+*   (Cache Abstraction ** Part VI. Integration) http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html
+*   (Introducing Cache support in Spring 3.1 M1) http://viralpatel.net/blogs/cache-support-spring-3-1-m1/
+**  (Hibernate EHCache Second Level Caching Example Tutorial ** Hibernate EHCache Project) http://www.journaldev.com/2980/hibernate-ehcache-second-level-caching-example-tutorial
+*   (Simple Spring Memcached – Spring Caching Abstraction and Memcached) http://www.javacodegeeks.com/2013/06/simple-spring-memcached-spring-caching-abstraction-and-memcached.html
+                                                                        http://www.javacodegeeks.com/author/niraj-singh/
+
+
+> chdir /d D:
+> cd D:\IdeaProjects\JavaLessons\Spring\DB\Spring\spring-data-rest-angular-sample\target
+> dir
+> java - jar spring-data-rest-angular-0.0.1-SNAPSHOT.jar
+
+> chdir /d C:
+> C:\Program Files (x86)\Java\jdk1.7.0\bin\java - jar spring-data-rest-angular-0.0.1-SNAPSHOT.jar
+> java - jar D:\IdeaProjects\JavaLessons\Spring\DB\Spring\spring-data-rest-angular-sample\target\spring-data-rest-angular-0.0.1-SNAPSHOT.jar
+
+********************************************************************************************************************************************
+**********************************************************************[ Spring - кеширование данных ]
+(Spring 3.1 M1: Cache Abstraction) https://spring.io/blog/2011/02/23/spring-3-1-m1-cache-abstraction
+(Cache Abstraction: JCache (JSR-107) Annotations Support) http://spring.io/blog/2014/04/14/cache-abstraction-jcache-jsr-107-annotations-support
+         (Java Caching (JSR 107): The State of the Union) https://blogs.oracle.com/theaquarium/entry/jcache_is_final_i_repeat
+
+(Дальнейшие усовершенствования кеширования в Spring 4.1) http://spring-projects.ru/blog/further-cache-improvements-in-spring-4-1/
+
+(Кеширование данных с Spring) http://spring-projects.ru/guides/caching/
+   (Caching Data with Spring) https://spring.io/guides/gs/caching/
+
+**********************************************************************
+(Spring Data ** использование таких технологий доступа к данным, как реляционные и нереляционные СУБД, map-reduce фреймворки и облачные сервисы) http://spring-projects.ru/projects/spring-data/
+
+**********************************************************************[ Spring - RESTful Web-сервис ]
+(Создание RESTful Web-сервиса) http://spring-projects.ru/guides/rest-service/
+(Понимание REST) http://spring-projects.ru/understanding/rest/
+                 http://video.yandex.ru/users/xpinjection/view/192/#hq
+				 http://video.yandex.ru/users/xpinjection/view/193/#hq
+				 http://video.yandex.ru/users/xpinjection/view/194/#hq
+
+(CRUD using Spring MVC 4.0 RESTful Web Services and AngularJS) http://www.programming-free.com/2014/07/crud-springmvc-restful-webservices-angularjs.html
+                                                               http://www.programming-free.com/p/demo.html?url=goo.gl/1NvX0w&height=800px
+ (CRUD using Spring Data Rest and AngularJS using Spring Boot) http://www.programming-free.com/2014/07/spring-data-rest-with-angularjs-crud.html
+                                                               http://otvety.google.ru/otvety/thread?tid=0bd0bdc8de4e8a94
+
+(Spring Data REST XML Configuration Example) https://idodevjobs.wordpress.com/2014/07/12/spring-data-rest-xml-configuration-example/
+
+**********************************************************************[ AngularJS ]
+(Resources that Inspire to learn AngularJS) http://www.programming-free.com/2014/07/resources-that-inspire-to-learn-angularjs.html
+(AngularJS : Retrieve Multiple Checkbox Selected Options) http://www.programming-free.com/2014/05/angularjs-retrieve-multiple-checkbox-selected-options.html
+********************************************************************************************************************************************
+
+********************************************************************************************************************************************
+(postgresql структура схемы базы данных описание уроки)
+
+(Встречайте: IntelliJ IDEA 13) http://habrahabr.ru/company/JetBrains/blog/204590/
+(Быстрая настройка окружения для программирования на Java) http://eax.me/java-dev-environment/
+
+(java 8 дефолтные методы)
+http://www.quizful.net/post/new-in-java-8
+http://habrahabr.ru/post/203026/
+
+http://microsin.net/adminstuff/windows/install-java-manually.html
+http://www.javaprobooks.ru/java-программирование/jdk-скачать-установить.html
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html
+********************************************************************************************************************************************
+
+********************************************************************************************************************************************
+(английский сочинение про квартиру)
+http://ycilka.net/tvir.php?id=406
+http://ycilka.net/tvir.php?id=844
+http://english-lessons-online.ru/chitalka/topics/o-sebe-68
+
+improve ......... улучшать
+performance ..... производительность
+transparently ... прозрачно
+truncated ....... усеченный
+extended ........ расширенный
+embedded ........ встроенный
+strive .......... стремиться
+********************************************************************************************************************************************
+
+
+
+
+                                                                                                 https://github.com/guylabs/angular-spring-data-rest-sample
+                                                                                                 https://github.com/techdev-solutions/trackr-frontend
+                                                                                                 https://github.com/techdev-solutions/trackr-backend
+                                                                                                 http://jaxenter.com/rest-api-spring-java-8-112289.html
+                                                                                                 http://java.dzone.com/articles/crud-using-spring-data-rest
+                                                                                                 http://www.pinnsg.com/spring-rest-angular-creating-api/
+                                                                                                 https://www.assembla.com/wiki/show/liftweb/Использование_Gradle
+                                                                                                 (spring data restful gradle пример)
+http://www.programming-free.com/2014/07/spring-data-rest-with-angularjs-crud.html
+http://localhost:8080/home
+
+https://www.twilio.com/blog/2013/12/votr-part-5-angularjs-crud-restful-apis.html
+https://docs.angularjs.org/tutorial/step_11
+(angularjs rest)
+http://habrahabr.ru/post/180941/
+https://spring.io/guides/gs/consuming-rest-angularjs/
+https://spring.io/understanding/JSON
+
+(spring sql configuration)
+http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
+http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-nosql.html
+
+
+********************************************************************************************************************************************[ AngularJS ]
+(Первое приложение на AngularJS ** file:///home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/tmp/MyAngularJS_1.html) http://metanit.com/web/angular/1.2.php 
+(Пример приложения — телефонной книги на AngularJS + Bootstrap v3) http://habrahabr.ru/post/215185/
+(AngularJS. Введение и простые примеры для понимания) http://www.slideshare.net/tigusigalpa/angularjs-38774247
+(С чего начать изучение AngularJS) http://stepansuvorov.com/blog/2012/12/с-чего-начать-изучение-angularjs/
+(С чего начать изучать AngularJS) http://thinking.bohdanvorona.name/to-learn-angular/
+(Основы AngularJS на простом примере) http://devoid.com.ua/web-development/javascript/osnovy_angularjs_na_prostom_primierie.html
+- (Setting up a productive AngularJS & Java environment) http://blog.ninja-squad.com/2014/04/14/productive-angular-and-java-environment/
++ (Spring ** Приятнее всего, что IDE автоматически обнаруживает unmapped contexts) http://habrahabr.ru/company/JetBrains/blog/204590/
+
+(java - Деплой Maven + Tomcat7) http://hashcode.ru/questions/219845/java-деплой-maven-tomcat7
+
+(CRUD using Spring MVC 4.0 RESTful Web Services and AngularJS) http://www.programming-free.com/2014/07/crud-springmvc-restful-webservices-angularjs.html
+(CRUD using Spring Data Rest and AngularJS using Spring Boot) http://www.programming-free.com/2014/07/spring-data-rest-with-angularjs-crud.html
+**********************************************************************
++ (AngularJS Tutorial: Getting Started with AngularJS) http://www.javacodegeeks.com/2014/09/angularjs-tutorial-getting-started-with-angularjs.html
+                                                       http://start.spring.io/
+                                                       http://www.webjars.org/
+  (The architecture of a Spring MVC + Angular single page web app) http://blog.jhades.org/developing-a-modern-java-8-web-app-with-spring-mvc-and-angularjs/
+                                                                   https://github.com/jhades/spring-mvc-angularjs-sample-app
+  (Spring and Angular JS: A Secure Single Page Application) http://spring.io/blog/2015/01/12/spring-and-angular-js-a-secure-single-page-application
+  (Java EE 7 with Angular JS – Part 1) http://www.radcortez.com/java-ee-7-with-angular-js-part-1/
++ (...AngularJS...) http://www.angularcode.com/
+                    http://demos.angularcode.com/grid/
+                    http://demos.angularcode.com/product-manager/#/
+                    file:///home/alexandr/JenkinsProjects/jenkins-signup-spring3/product-manager/index.html#/
+. (Learning AngularJS by Example – The Customer Manager Application) http://weblogs.asp.net/dwahlin/learning-angularjs-by-example-the-customer-manager-application
+  (AngularJS Tutorial - Building a Web App in 5 minutes) https://www.airpair.com/angularjs/building-angularjs-app-tutorial
++ (Webix 1.2: Интеграция с AngularJS и Backbone.js) http://webix.com/ru/blog/webix-1-2-integraciya-s-angularjs-i-backbone-js/
+                                                    http://startbootstrap.com/template-overviews/sb-admin/
++                                                   http://ironsummitmedia.github.io/startbootstrap-sb-admin/charts.html
+                                                    file:///home/alexandr/JenkinsProjects/jenkins-signup-spring3/webix/samples
+                                                    http://webix.com/ru/demos/admin-app/#!/app/forms
+  (AngularJS. Руководство разработчика >> Переводы полностью переехали на сайт angular.ru Любые правки осуществляются там) http://translatedby.com/you/angularjs-developer-guide/into-ru/?page=27
+  (Разработка директив angularjs — это просто) https://sohabr.net/post/200620/
+  (AngularJS примеры и видео уроки) http://artemdemo.me/blog/angularjs-примеры-видео-уроки/
+. (Разработка веб-приложений с использованием AngularJS - Павел Козловский, Питер Бэкон Дарвин) http://lynxlab.org/1002-razrabotka-veb-prilozhenij-s-ispolzovaniem.html
++ (Учебник AngularJS: Всеобъемлющее руководство. 1-2) http://info.uz/press/?p=1615
+  (AngularJS: Введение и пример Hello World) http://sharcus.blogspot.com/2013/10/angularjs-hello-world.html
++                                            http://jsfiddle.net/viralpatel/nZ5sH/
+  (Руководство по работе с AngularJS: RESTful JSON-парсинг) http://www.coolwebmasters.com/javascripts/4343-angularjs-tutorial-restful.html
+                                                            file:///home/alexandr/JenkinsProjects/jenkins-signup-spring3/angularDemo/angularDemo/index.html
++ (Валидация формы на AngularJS и отправка на Ajax) http://webtoks.ru/angularjs/validaciya-formy-na-angularjs-i-otpravka-na-ajax/
+. (Building a Web App From Scratch With AngularJS) http://rutracker.org/forum/viewtopic.php?t=4834986
+  (AngularJS — фреймворк для динамических веб-приложений от Google) http://habrahabr.ru/post/149060/
+. (Изучаем AngularJS на пяти практических примерах) http://www.internet-technologies.ru/articles/article_1637.html
+  (Введение в AngularJS и простейший пример приложения) http://codehint.ru/articles/2013-06-06_angularjs_introduction_and_simple_example
++ (Первое приложение на AngularJS) http://metanit.com/web/angular/1.2.php
+                                   file:///home/alexandr/JenkinsProjects/jenkins-signup-spring3/Spring/MyAngularJS_1.html
+  (Пример приложения — телефонной книги на AngularJS + Bootstrap v3) http://habrahabr.ru/post/215185/
++ (AngularJS. Введение и простые примеры для понимания) http://www.slideshare.net/tigusigalpa/angularjs-38774247
++ (Разработка Web-приложений на Angular JS. Архитектурные семинары Softengi) http://www.slideshare.net/Softengi_LLC/150714-web-angular-js?next_slideshow=1
++ (С чего начать изучение AngularJS) http://stepansuvorov.com/blog/2012/12/с-чего-начать-изучение-angularjs/
+  (С чего начать изучать AngularJS) http://thinking.bohdanvorona.name/to-learn-angular/
++ (Практикум AngularJS — разработка административной панели) http://habrahabr.ru/post/149757/
++ (Практикум AngularJS — разработка административной панели (часть 2)) http://habrahabr.ru/post/150321/
++ (Основы AngularJS на простом примере) http://devoid.com.ua/web-development/javascript/osnovy_angularjs_na_prostom_primierie.html
+  (Developing Single Page Web Applications using Java 8, Spark, MongoDB, and AngularJS) https://blog.openshift.com/developing-single-page-web-applications-using-java-8-spark-mongodb-and-angularjs/
+                                                                                        https://github.com/shekhargulati/todoapp-spark
+  (Setting up a productive AngularJS & Java environment) http://blog.ninja-squad.com/2014/04/14/productive-angular-and-java-environment/
+**********************************************************************
++ (Spring AOP или AspectJ: в чем же все таки разница?) http://www.springbyexample.com.ua/2012/10/spring-aop-aspectj.html
+  (Сайт на JAVA с использованием Spring Framework) https://toster.ru/q/14647
+                                                   http://www.spring-source.ru/articles.php
+                                                   http://www.spring-source.ru/articles.php?type=manual&theme=articles&docs=article_07
++                                                  http://0agr.ru/blog/2011/04/15/spring-основы/
+  (Tutorial:Create Spring 3 MVC Hibernate 3 Example using Maven in Eclipse) http://viralpatel.net/blogs/spring3-mvc-hibernate-maven-tutorial-eclipse-example/
+  (Учимся готовить: Spring 3 MVC + Spring Security + Hibernate) http://habrahabr.ru/post/111102/
++ (Урок 17 - Spring - Java для тестировщиков) https://www.youtube.com/watch?v=6mXTY7RSAf0
+**********************************************************************
+  (mysql индексирование таблицу) 
+  http://www.mysql.ru/docs/man/CREATE_INDEX.html
+  (mysql скопы что это)
++ (Большие таблицы и уникальные ключи) http://habrahabr.ru/post/76149/
+. (6.8 Полнотекстовый поиск в MySQL) http://www.mysql.ru/docs/man/Fulltext_Search.html
++ (Немного про Deadlock) http://habrahabr.ru/post/160485/
++ (MySQL: уровни изоляции транзакций) http://habrahabr.ru/post/135217/
+********************************************************************************************************************************************
+https://www.youtube.com/watch?v=Fs3ii-ppoLc
+----------------------------------------------------------------------------------------------------------------[ Мирончик И.:" Основы SQL / PLSQL и администрирования БД" [1] ]
+Вообще все запросы внутри MySQL связаны с копированием данным.
+Идея переноса данных основывается тем что в процессе выполнения копирования создаются новые данные и до конца выполнения операции старые неудаляются...
+А также в копировании еще участвует кеш буфера обмена.
+Копирование больших файлов это задача долгоиграющая и в ходе ее выполнения может произойти все что угодно (закончиться место/память/ошибка передачи/ошибка чтения) - если такая ошибка произошла в MySQL должен сработать тригер
+и произвести выброс из процесса. Инначе если параллельно будут выполняться другие задачи - из-за этого процесс может получить взаимную зависимость и заблокироваться/зацыклиться
+**********************************************************************[ MySQL-сервер ]
+**********************************************************************[ MySQL-сервер ]
+Можно представит себе некий горизонт - это такая себе линия за/на которой происходят неконтролируемые события - место рождения данных (кто-то запрашивает или хочет положить какие-то данные)...
+Внутри механизм-MySQL можно представить как менеджер по копированию файлов/данных - копирования/перемещения/чтения/обновления это долгоиграющие/тянучие процессы, которые висят как потоки (в процессе их выполнения создаются временные/транзитные данные которые формируют результаты операции)...
+Внутри MySQL имеет полностью контролируемый механизм, который упорядочено хранит (свои) данные. Время выполнения/прохождения процесса-потока создания/формирования упорядоченных данных внутри MySQL - это есть СЕССИЯ.
+Такая сессия привязана к устройству/ресурсу на котором храняться данные, проблема в том что такое уствойство/ресурс имеет ограничения - устройство/ресурс будет зайнят пока выполняется одна операция и уже другая операция не может захватить его, будет находиться в режиме ожидания... (упорядоченные процессы)
+
+Бывают случаи когда такие упорядоченные процессы пересекаются внутри механизма-MySQL и их можно зацыклить зависимостями между собой - это есть ДЕДЛОК.
+
+Итак, по сути механизм базы данных делает перевод из произвольних процессов/событий в упорядоченные-зафиксированые процессы.
+Каждая сессия в базе данных представляет собой упорядоченный процесс для выполнения-формирования данных (внутри базы) - собственно сессия является гарантией того что входящие данные будут успешно сохранены/зафиксированы.
+Сессии это долгоиграющая/тянучая операция, она имеет начало и конец выполнения - "begin transaction / commit" (а в процессе выполнения сессия занимает и держит ресурсы).
+Поэтому на процессы что происходят внутри сессии накладываются специальные ограничения по уровням доступа к операциям. Внутри каждой сессии в процессе формирования данных создаются временные таблицы/данные, и только после того как эти временные таблицы/данные будут успешно сформированы/созданы - данные будут фиксированые..., а после этого все временные таблицы/данные будут удалены.
+Каждая сессия имеет 3-типа данных: [1] (внешние/появляющиеся/поступающие) произвольные данные >>> [2] (внутренние/фиксированые) упорядоченные данные >>> [3] (участвуют в процессе формирования) временные данные.
+То есть, при "begin transaction" [1] произвольные данные начинают попадать в базу И при "commit" [2] упорядоченные данные зафиксируются.
+
+Полезно знать что
+- существуют 2-типа блокировок:
+  1. Shared(S)    - блокировка уровня чтения
+  2. Exclusive(X) - блокировка уровня записи
+- существуют 4-типа уровней изоляции:
+  4. SERIALIZABLE (упорядоченная изоляция)                                         - доступ (только) для 1-юзера (только) к зафиксированым данным - (самый высокий уровень изоляции).
+  1. READ UNCOMMITTED (изоляция уровня чтения неподтвержденного/незафиксированных) - доступ для всех к временным данным которые находятся в процессе и зафиксированым данным - (самый низкий уровень изоляции) грязное чтение.
+  3. REPEATABLE READ (изоляция уровня повторяемого чтения)                         - доступ для всех (только) к зафиксированым данным.
+  2. READ COMMTITED (изоляция уровня чтения подтвержденного/фиксированных)         - доступ для всех (только) к зафиксированым данным И (только) для 1-юзера к временным данным которые находятся в процессе и зафиксированым данным.
+
+Количество сессий подключения к базе данных - это есть ПУЛы (идея пула ограничить максимальное количество сессий).
+Каждая/любая таблица в базе данных является объектом (потому-что объект - это такие актуальные данные, не прототип, которые находятся в процессе выполнения...)
+
+**********************************************************************[ MySQL-клиент ]
+**********************************************************************[ MySQL-клиент ]
+http://eddnet.org/?p=1580
+----------------------------------------------------------------------------------------------------------------[ Концепция использования операции JOIN в MySQL ]
+ "JOIN" это аналог оператора "WHERE" (но "JOIN" имеет больше функциональных возможностей и преимуществ).
+Существует "INNER JOIN" (он же просто JOIN) и "OUTER JOIN" (он же FULL OUTER JOIN).
+Объединение - это когда мы строим общую таблицу, а результаты здесь объединяются из нескольких таблиц. Если при выборке количество строк равно,
+тогда получаем полностью заполненую таблицу, а инначе - мы будем видеть полу-пустые (незаполненые) строки.
+Значение этих самых полу-пустых (незаполненых) строк равняется "NULL".
+ Например, есть 2-таблицы, нужно выбрать все поля из этих таблиц значения которых равны:
+- (INNER) "JOIN" в самом первом случае мы будем видеть только те строки, значения которых совпадают...
+- (INNER) "LEFT JOIN" объединение с левой-таблицей, будем видеть все результаты из левой таблицы и только те строки из правой значения
+          которых совпадают (а все пустые поля, значения которых несовпадают, из правой таблицы будут NULL)...
+- (INNER) "RIGHT JOIN" объединение с правой-таблицей, будем видеть все результаты из правой таблицы и только те строки из левой значения
+          которых совпадают (а все пустые поля, значения которых несовпадают, из левой таблицы будут NULL)...
+- (OUTER) "LEFT JOIN IS NULL" при этом мы будем видить только те строки из левой таблицы значения которых НЕсовпадает (или равняется NULL)
+          с правой таблицей.
+- (OUTER) "RIGHT JOIN IS NULL" при этом мы будем видить только те строки из правой таблицы значения которых НЕсовпадает (или равняется NULL)
+          с левой таблицей.
+- "FULL OUTER JOIN" здесь мы выведем абсолютно все поля из всех таблиц, а строки значения которых несовпадают будут видны нам как NULL...
+- (OUTER) "FULL OUTER JOIN IS NULL" при этом мы будем видить только те строки из правой и левой таблицы значения которых несовпадают
+----------------------------------------------------------------------------------------------------------------
+
+http://www.quizful.net/interview/java/exception-types
+http://www.javenue.info/post/62
+http://habrahabr.ru/company/golovachcourses/blog/225585/
+**********************************************************************[ java checked unchecked exception error ]
+В Java исключения "Exception/RuntimeException" и ошибки "Errors" являются объектами.
+Когда метод вызывает исключительную ситуацию (бросает - "throws") он работает только с теми объектами, которые наследуются от "Throwable".
+
+                    Object
+                      |
+               Throwable(CHECKED)
+               /            \
+     Error(UNCHECKED)    Exception(CHECKED)
+                            |
+                  RuntimeException(UNCHECKED)
+
+В Java есть два типа исключений:
+1. "Checked" - это те исключения, которые обязательно должны обрабатываться блоком "catch" и обязательно указываются в сигнатуре метода.
+   Это события которые заранее предусмотреть нельзя, checked исключения наследуются от "Exception",
+   (Пример checked исключения: IOException)
+2. "Unchecked" - это те исключения, которые могут не обязательно обрабатываться и не быть описанными.
+   Это события которые заранее можно и нужно предугадать. Unchecked исключения наследуются от "RuntimeException".
+   (Пример unchecked исключения: NullPointerException, ArrayIndexOutOfBoundsException, ClassCastExcpetion)
+.. "Error" - (не в входят в иерархию Exception) можно попытаться отловить для завершающих действий программы
+   (как пример, логирование или запуск нового экземпляра приложения).
+   (Пример error исключения: OutOfMemoryError, NoClassDefFoundError, NoSuchMethodError, AssertionError, ThreadDeath)
+
+
+http://fusionsoft-online.com/download/static/tutorials/annotation_tutorial_rus.pdf
+http://javatalks.ru/topics/26180?page=1#141164
+http://habrahabr.ru/company/golovachcourses/blog/217595/
+http://habrahabr.ru/post/139736/
+**********************************************************************[ java annotation ]
+Аннотации представляют из себя дескрипторы которые включают в текст программы.
+И используются для хранения метаданных программного кода (необходимых на разных этапах жизненного цикла программы - информация хранимая в аннотациях, может использоваться соответствующими обработчиками для создания необходимых вспомогательных файлов или для маркировки классов, полей и т.д.)
+
+  существует 3-типа аннотации:
+  1. "SOURCE" (данная аннотация видна исключительно в сорцах, когда мы компилируем в байткод уже ничего небудет)
+              Аннотации модифицирующие поведение компилятора и JVM: @Deprecated, @Override, @SafeVarargs, @SuppressWarnings, например:
+			  - "@Overload"   - перегрузка
+			  - "@Override"   - переопределение (информирует компилятор о том, что метод перегружает метод в суперклассе)
+              - "@Deprecated" - отмечает что метод устарел (Вызывает предупреждение компиляции, если метод используется, ну например в случае когда уже у нас есть какая-нибудь альтернатива)
+  2. "CLASS" (по умолчанию - это рентейшин поле говорит что аннотация в байткод попасть должна но при этом всеравно через РЕФЛЕКШИН через рантайм мы ее считать не сможем, потому что ее там уже небудет)
+  3. "RUNTIME" (это у большинства аннотаций, которые видны в рантайме и которые через РЕФЛЕКШИН можно считать)
+
+".invoke(..)" - это ссылка на оригинальный метод (например когда мы его вызываем в классе-наследнике) с возможностью передать ему параметры.
+((Class.forName(..)) ".getMethods()" - работает аналогично invoke(..) но только уже для оригинального класса который не-прокси...)	
+
+"Enum" - это как классы только их нельзя наследовать.
+
+"@Inject"      - инъекции призваны динамически выбирать нужную реализацию интерфейса >> http://www.linux.org.ru/forum/development/10199873
+"@Retention"   - позволяет указать жизненный цикл аннотации (будет она присутствовать только в исходном коде в скомпилированном файле или она будет также видна и в процессе выполнения)
+"@Target"      - указывает что именно мы можем пометить этой аннотацией (это может быть поле, метод, тип и т.д.)
+"@Documentedу" - казывает что помеченная таким образом аннотация должна быть добавлена в javadoc поля/метода и т.д.
+"@Inherited"   - помечает аннотацию, которая будет унаследована потомком класса.
+
+scope (скоупы):
+@singletone
+@prototype
+
+--------------------------------------
+Что нового "Spring 4":
++ Java 8 (лямбда)
++ clouders
++ JSR 310 (API со временем связаного)
++ @Repetable (повторные аннотации)
+
+**********************************************************************[ сгенериться новый класс на лету ]
+Есть 2-варианта:
+1. "Dynamic Proxy" (статический метод генерирует классы на лету "Proxy.newProxyInstance(..)") либо он должен ИМПЛЕМЕНТИРОВАТЬ те-же самые
+   ИНТЕРФЕЙСЫ (точно также и работают АСПЕКТы... в спринг-АОП);
+2. "CGLIB" - либо он должен НАСЛЕДОВАТЬСЯ от оригинального класса и ПЕРЕОПРЕДЕЛЯТЬ его методы (СДЕЛЕГИРОВАТЬ метод - добавляя туда нужную
+   логику, такой подход считается хуже: потому-что он и по ПЕРФОРМерсу бет, и дело в различных ограничениях, например, не все можно
+   наследовать "finally-классы-методы"... причем CGLIB раньше нужно было добавлять как отдельный jar-проект... в версии спринга-3.2 CGLIB
+   упакован вместе);
+
+("JMX-console" - стандартизованные средства предоставления интерфейса управления с возможностью удаленного доступа)
+(+) "MBean" и компоненты - состоит из MBean-сервера и MBean-клиента, которые позволяют на лету управлять через интерфейсы зарегистрированными
+    MBean-компонентами. (это довольно старая технология и удобна когда нужно держать единственный-общий ресурс к которому будет открытый
+    удаленный доступ из других мест..., что-то накштаут синхронизации для много-процессорных приложений)
+    Для регистрации такого JMX-компонента нужно просто создать класс-интерфейс и в конце его имени добавить "MBean".
+(+) "(MBeanServer) ManagementFactory.getPlatformMBeanServer()", ".registerMBean(..)".
+    Регистрировать можно в конструкторе нашего класса-имплементирующего "BeanPostProcessor", но важно чтобы он бросал "throws Exception"-исключения
+    (на случай если такая регистрация уже существует и другие возможные ошибки...).
+    - MBean это достаточно удобная вещь, она позволяет после запуска приложения и даже неостанавливая его, можно в горячем режиме, например,
+    через "jvisualvm" (или другой удаленный инструмент... "jconsole") изменить значение для этого зарегистрированного MBean-компонента - и этим
+    самым получать логирование.
+
+
+**********************************************************************[ Java фреймворки ]
+- Collection
+- Concurrency (Семафоры-Двоичный/Счетный, Мьютекс)
+- MapReduce
+- Fork/Join (фреймворк для многопоточного программирования в Java 7 основанный на легковесных потоках/задачах)
+- Vaadin (7.1)
+- Hibernate (4.1)
+- Spring (3.2, 4.1)
+- GWT
+
+"Семафоры" (java.util.concurrent.Semaphore) - используются для того, чтоб перед использованием ресурса проверить его доступность.
+"Семафор" — объект, ограничивающий количество потоков, которые могут войти в заданный участок кода. Определение введено Эдсгером Дейкстрой.
+"Семафоры" используются при передаче данных через разделяемую память.
+"Мьютекс" – это "двоичный семафор", обычно используемый для организации согласованного доступа к неделимому общему ресурсу. 
+Мьютекс может принимать значения 1 (свободен) и 0 (занят).
+Кроме того, его легко и дешево реализовывать.
+Как показывает практика правильно использовать его проще, чем другие механизмы синхронизации. На основе mutex и еще одного механизма, про который мы поговорим позже, легко построить все остальные механизмы синхронизации.
+
+
+("Приёмы_параллельного_программирования_Java")
+-- WorkManager API (JSR-237) - Средства параллельного программирования в J2EE
+
+("Шаблон_параллельного_программирования_Т-подхода")
+-- Модель Map-Reduce
+-- стандарт MPI (Message Passing Interface)
+
+("Введение_параллельные_вычисления")
+-- Техгология MPI
+
+
+**********************************************************************[ Шаблон проектирования или паттерн ]
+--------------------------------------------------------------
+2. Порождающие (creational):
+   - (java 1)..Одиночка......................"Singleton"
+   - (c++  4)..Строитель....................."Builder"
+   - (java 2)..Фабричный метод..............."FactoryMethod"
+   - (java 3)..Абстрактная фабрика..........."AbstractFactory"
+4. Структурные (structural):
+   - ()........Итератор......................"Iterator"
+   - (java 5)..Адаптер......................."Adapter"
+   - (c++  2)..Заместитель..................."Proxy"
+   - (java 6)..Фасад........................."Facade"
+   - (c++  3)..Компоновщик..................."Composite"
+   - ()........Мост.........................."Bridge"
+   - (java 4)..Декоратор....................."Decorator"
+   - ()........Приспособленец................"Ayweight"
+5. Поведенческие (behavioral):
+   - (java 9)................................"Strategy"
+   - (java 7)..Наблюдатель..................."Observer"
+   - (c++  1)................................"Command"
+   - ()........Посетитель...................."Visitor"
+   - ()........Нулевой объект................"Null Object"
+   - (java 8)..Состояние....................."State"
+--------------------------------------------------------------
+
+1. Фундаментальные-Основные (fundamental):
+   - (~).......Заместитель..................."Ргоху"
+   - ()........Маркер-интерфейс.............."Marker Interface"
+   - ()........Интерфейс....................."Interface"
+   - ()........Делегирование................."Delegation"
+   - ()........Неизменный...................."Immutable"
+
+
+
+                               (Шаблон проектирования или паттерн) http://ru.wikipedia.org/wiki/Шаблон_проектирования#.D0.9E.D1.81.D0.BD.D0.BE.D0.B2.D0.BD.D1.8B.D0.B5
+          (32-шаблона, в том числе 23-шаблона используемых в Java)
+(Применение шаблонов Java. Библиотека профессионала - Стелтинг С.) http://bulletinsite.net/index.php?id1=6&category=programmer&author=stelting-s&book=2002&page=96
+                                (http://ooad.asf.ru/Patterns.aspx) http://ooad.asf.ru/Patterns.aspx
+                       (Шпаргалка по 23-х шаблонов проектирования) http://habrahabr.ru/post/210288/
+
+Виды паттернов:
+1. Основные (fundamental):
+   - ()........Delegation...................."Делегирование"
+   - ()........Interface....................."Интерфейс"
+   - ()........Abstract Superclass..........."Абстрактный суперкласс"
+   - ()........Interface and Abstract Class.."Интерфейс и абстрактный класс"
+   - ()........Immutable....................."Неизменный"
+   - ()........Marker Interface.............."Маркер-интерфейс"
+   - (~).......Ргоху........................."Заместитель"
+2. Порождающие (creational - создают объекты):
+   - (java 1)..Singleton....................."Одиночка"
+   - (java 2)..FactoryMethod................."Фабричный метод"
+   - (java 3)..AbstractFactory..............."Абстрактная фабрика"
+   - (c++  4)..Builder......................."Строитель"
+3. Распределения обязанностей:
+   - (~).......Composite....................."Компоновщик"
+4. Структурные (structural - они изменяют структуру уже готового созданого объекта):
+   - (java 4)..Decorator....................."Декоратор"
+   - (java 5)..Adapter......................."Адаптер"
+   - (java 6)..Facade........................"Фасад"
+   - (c++  2)..Proxy........................."Заместитель"
+   - (c++  3)..Composite....................."Компоновщик"
+   - ()........Iterator......................"Итератор"
+   - ()........Bridge........................"Мост"
+   - ()........Ayweight......................"Приспособленец"
+   - ()........Dynamic Linkage..............."Динамическая компоновка"
+   - ()........Virtual Proxy................."Виртуальный заместитель"
+   - ()........Cache Management.............."Упрамение кэшем"
+5. Поведенческие (behavioral):
+   - (java 7)..Observer......................"Наблюдатель"
+   - (java 8)..State........................."Состояние"
+   - (java 9)..Strategy......................"Стратегия"
+   - (c++  1)..Command......................."Команда"
+   - ()........Chain of Responsibility......."llепочка ответственности"
+   - ()........Mediator......................"Посредник"
+   - ()........Null Object..................."Нулевой объект"
+   - ()........Template Method..............."Метод шаблона"
+   - ()........Visitor......................."Посетитель"
+6. Для конкурирующих операций:
+   - ()........Single Threaded Execution....."Однопоточное выполнение"
+   - ()........Lock Object..................."Объект блокировки"
+   - ()........Scheduler....................."Планировшик"
+   - ()........Reducer Consumer.............."Производитель-потребитель"
+7. Системные:
+   - ()........Model-View-Controller (MVC)..."Модель-Вид-Контроллер"
+   - ()........Session......................."Session Facade"
+   - (~).......Worker Thread................."для улучшение пропускной способности и минимизация средней задержки при реализации параллельного выполнения"
+   - ()........Callback......................"Обратный вызов"
+
+
+https://plugins.jetbrains.com/plugin/7244?pr=
+http://habrahabr.ru/post/168195/
+**********************************************************************[ intellij idea: equals, hashCode and toString generator ]
+
+
+| (spring security)
++ http://habrahabr.ru/post/203318/
++- https://ru.wikibooks.org/wiki/Spring_Security/Технический_обзор_Spring_Security
+
+| (activemq пример java)
++- http://javatalks.ru/topics/16361
++- http://ddiary.ru/java-message-service-jms-na-primere-apache-activemq/
++- http://onedeveloper.ru/article?id=12
+
+| (кластеры j2ee)
++- http://jboss.ru/jboss_ru/servlet/articles?m=SHOW&id=1151
++- http://www.netinfo.in.ua/default.asp-id=227.htm
++- http://www.netinfo.in.ua/default.asp-id=228.htm
++- http://citforum.ck.ua/hardware/articles/cluster.shtml
++- http://deadlock.org.ua/kit/habr/post/19295
++- http://publib.boulder.ibm.com/wasce/V2.1.0/ru/configuring-tomcat-native-clusters.html
++- http://habrahabr.ru/post/101338/
++- http://habrahabr.ru/post/206904/
++- http://www.javaworld.com/article/2075019/jndi/j2ee-clustering--part-1.html
++- https://forum.xakep.ru/topic/901400/
++- http://www.sapboard.ru/forum/viewtopic.php?f=14&t=73605&start=0
++- http://www.theserverside.com/news/1364410/Under-the-Hood-of-J2EE-Clustering
++- http://www.oracle.com/technetwork/java/dataaccessobject-138824.html
++- http://www.corej2eepatterns.com/
++- https://ru.wikipedia.org/wiki/Шаблоны_J2EE
++- http://www.cyberforum.ru/java/thread478884.html
++- http://www.corej2eepatterns.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

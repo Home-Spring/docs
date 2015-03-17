@@ -1,0 +1,123 @@
+
+(Простой и полезный Spring Cache) http://nikcode.blogspot.com/2012/12/spring-cache.html
+(Cache Abstraction ** Introduction) http://docs.spring.io/spring/docs/3.1.x/spring-framework-reference/html/cache.html
+(Cache Abstraction ** Introduction) http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html
+(Учебные материалы ** Кеширование данных с Spring) http://spring-projects.ru/guides/caching/
+                                                   https://spring.io/guides/gs/caching/
+(Кэширование данных в приложениях с Spring 3, размещенных в AppEngine) http://habrahabr.ru/post/98972/
+(Spring 3.1: новые возможности ** Абстракция кэширования (cache abstraction)) http://www.finecosoft.ru/spring-3.1-new-features
+
+
+
+
+
+
+
+http://ehcache.org/
+http://habrahabr.ru/post/25140/
+------------------------------------------------------------------------------------------------------------------------[ Распределённая система кеша EHCache для приложений любого уровня ]
+Распределённое кеширование может применяться для обеспечения работы на кластере или в других распределённых схемах.
+Синхронизация и/или репликация кешей между узлами может быть как общей, так и локальной, для отдельных кешей по своей схеме, асинхронной или синхронной.
+Кеш может быть как самостоятельной единицей в составе приложения, так и взаимодействует с другими популярными фреймворками, в частности, с прослойкой для работы с базами данных Hibernate.
+> "EHCache" - (провайдер, распределённая система кеша) может реализовывать несколько различных стратегий кеширования.
+              Уникальной функцией EHCache является "персистентный кеш", который позволяет хранить состояние объектов даже после перезагрузки виртуальной java-машины.
+Это необычно небольшое приложение, которое реализует кеш как динамический (в оперативной памяти), так и дисковый кеш, изначально спроектированное для работы с кешами большого объёма в распределённых системах.
+
+
+http://spring.io/blog/2014/04/14/cache-abstraction-jcache-jsr-107-annotations-support
+https://spring.io/blog/2011/02/23/spring-3-1-m1-cache-abstraction
+------------------------------------------------------------------------------------------------------------------------[ Spring & JCache(JSR-107) ]
+> Одна из основных особенностей которая была добавленных в Spring Framework 3.1 - "общий абстрактный кэш" для прозрачного применения кэширования в приложениях-Spring.
+  До сих пор мы поддерживали имена кеша на уровне определения в аннотациях.
+  В случае когда в приложении необходимо использовать белее одного (провайдера) кэш-менеджера, поступали жалобы о проблемах использования белее одного кэш-менеджера (необходимо было разрешить конфликт какому менеджеру использовать какое имя).
+> "Cache Abstraction" - (абстракция кэширования) позволяет последовательное использование различных решений кэширования с минимальным воздействием на код (реализация кэш-менеджера разрешает кэш(и) на основе предоставленных имен).
+
+> "JCache","JSR-107"  - приложения поддерживают стандартный протокол работы с кешем.
+                        "JCache" фактически использует внутреннюю Spring абстракцию кеширования (позволяет повторно использовать существующую инфраструктуру кеширования со стандартными аннотациями).
+                        "JSR-107" главная цель при реализации было использование того что у нас уже было (в нашей собственной абстракции) чтобы переход приложений был как можно плавнее.
+> "Spring"  - @Cacheable,   @CachePut, @CacheEvict,  @CacheEvict(allEntries=true)
+> "JSR-107" - @CacheResult, @CachePut, @CacheRemove, @CacheRemoveAll
+
+
+http://spring.io/blog/2014/04/14/cache-abstraction-jcache-jsr-107-annotations-support
+http://spring-projects.ru/blog/further-cache-improvements-in-spring-4-1/
+http://spring-projects.ru/guides/caching/
+https://spring.io/guides/gs/caching/
+http://habrahabr.ru/post/25140/
+http://ehcache.org/
+https://spring.io/blog/2011/02/23/spring-3-1-m1-cache-abstraction
+http://www.finecosoft.ru/spring-3.1-new-features
+------------------------------------------------------------------------------------------------------------------------[ Кеширование данных с Spring ** Дальнейшие усовершенствования кеширования в Spring 4.1 ]
+> "CacheResolver" - (абстракция) чтобы предоставить гибкость в настройках (реализация по умолчанию берет CacheManager и разрешает кеш(и) на основе предоставленных имен):
++------------------------------------------+
+| @Cacheable                               |
+| public Book findBook(ISBN isbn) {...}    |
++------------------------------------------+
+> Настройки на уровне операций - возможность управлять поведением кеша на много более глубоком уровне, Spring 4.1 позволяет определить CacheResolver (или CacheManager) и KeyGenerator в каждой операции:
++------------------------------------------------------------------------------------+
+| @Cacheable(value="book", keyGenerator="myKeyGenerator")                            |
+| public Book findBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)       |
++------------------------------------------------------------------------------------+
+> Настройки на уровне класса (совместное использование настроек на уровне метода, но без включение в поведение кеширования по умолчанию):
++------------------------------------------------------------------------------------+
+| @CacheConfig(cacheNames="book", keyGenerator="myKeyGenerator")                     |
+| public class BookRepository {                                                      |
+|                                                                                    |
+|     @Cacheable                                                                     |
+|     public Book findBook(ISBN isbn) {...}                                          |
+|                                                                                    |
+|     public Book thisIsNotCached(String someArg) {...}                              |
+| }                                                                                  |
++------------------------------------------------------------------------------------+
+
+
+
+
+
+
+
+
+====================================================================================================================================================================================================================
+(spring способы кэширования)
+*** (Spring 3.1 M1: Cache Abstraction) https://spring.io/blog/2011/02/23/spring-3-1-m1-cache-abstraction
+*** (Cache Abstraction: JCache (JSR-107) Annotations Support) http://spring.io/blog/2014/04/14/cache-abstraction-jcache-jsr-107-annotations-support
+*** (JCache is Final! I Repeat: JCache is Final!) https://blogs.oracle.com/theaquarium/entry/jcache_is_final_i_repeat
+*** (Дальнейшие усовершенствования кеширования в Spring 4.1) http://spring-projects.ru/blog/further-cache-improvements-in-spring-4-1/
+*** (Учебные материалы ** Кеширование данных с Spring) http://spring-projects.ru/guides/caching/
+*** (Проекты ** Spring Data) http://spring-projects.ru/projects/spring-data/
+    (Caching Data with Spring) https://spring.io/guides/gs/caching/
+    (Spring ** Основные интерфейсы) http://www.spring-source.ru/docs_simple.php?type=manual&theme=docs_simple&docs_simple=chap03_p03
+
+(spring dao cache)
+   (Extending declarative caching services for Spring) http://www.javaworld.com/article/2072722/extending-declarative-caching-services-for-spring.html
+   (Cache abstraction in Spring 3) https://doanduyhai.wordpress.com/2012/07/01/cache-abstraction-in-spring-3/
+   (Ehcache ** JDBC Caching) http://ehcache.org/documentation/2.8/integrations/jdbc
+   (Transactions with Spring Cache Abstraction and JDBC DAO) http://stackoverflow.com/questions/10904400/transactions-with-spring-cache-abstraction-and-jdbc-dao
+*  (Spring JDBC and Ehcache) https://exploringspatial.wordpress.com/2014/02/16/spring-jdbc-and-ehcache/
+
+(spring работа с базой данных кэширование)
+   (Domain-Driven Design: Продажа идеи) http://blog.byndyu.ru/2012/03/domain-driven-design.html
+   (Spring Data на примере JPA) http://habrahabr.ru/post/139421/
+   (Упрощаем работу с JPA при помощи Spring Data JPA) http://atamanenko.blogspot.com/2012/02/jpa-spring-data-jpa.html
+
+(spring кэширование транзакций к базе пример)
+** (Кеширование в Spring Framework 3.1) http://habrahabr.ru/post/113945/
+*  (Spring 3.1: новые возможности ** Абстракция кэширования (cache abstraction)) http://www.finecosoft.ru/spring-3.1-new-features
+   (Использование Spring для работы с базой данных через JPA) https://github.com/wizardjedi/my-spring-learning/wiki/Работа-с-базами-данных-на-основе-jpa
+*  (The Spring framework: Основы) http://www.javaportal.ru/java/articles/spring.html
+      (Основной сайт Spring Framework) http://www.springframework.org/
+      (Описание паттерна IoC. Автор: Мартин Фаулер (Martin Fowler)) http://www.martinfowler.com/articles/injection.html
+*   (Spring в действии. 3-издание / Spring in Action. Third Edition) http://rutracker.org/forum/viewtopic.php?t=4537975
+*   (Spring caching with Ehcache) http://www.codingpedia.org/ama/spring-caching-with-ehcache/
+*   (Cache Abstraction ** Part VI. Integration) http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html
+*   (Introducing Cache support in Spring 3.1 M1) http://viralpatel.net/blogs/cache-support-spring-3-1-m1/
+**  (Hibernate EHCache Second Level Caching Example Tutorial ** Hibernate EHCache Project) http://www.journaldev.com/2980/hibernate-ehcache-second-level-caching-example-tutorial
+*   (Simple Spring Memcached – Spring Caching Abstraction and Memcached) http://www.javacodegeeks.com/2013/06/simple-spring-memcached-spring-caching-abstraction-and-memcached.html
+                                                                        http://www.javacodegeeks.com/author/niraj-singh/
+*   (Распределённая система кеша ehcache для приложений любого уровня) http://habrahabr.ru/post/25140/
+*   (Простой и полезный Spring Cache) http://nikcode.blogspot.com/2012/12/spring-cache.html
+*   (Cache Abstraction ** Introduction) http://docs.spring.io/spring/docs/3.1.x/spring-framework-reference/html/cache.html
+*   (Кэширование данных в приложениях с Spring 3, размещенных в AppEngine) http://habrahabr.ru/post/98972/
+**  (Spring Data) http://spring-projects.ru/projects/spring-data/
+**  (Spring Data REST) http://spring-projects.ru/projects/spring-data/rest/#quickstart
+
